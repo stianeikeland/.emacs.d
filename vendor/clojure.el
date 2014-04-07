@@ -16,3 +16,6 @@
 
 (require 'midje-mode)
 (add-hook 'clojure-mode-hook 'midje-mode)
+
+(require 'rainbow-delimiters)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
