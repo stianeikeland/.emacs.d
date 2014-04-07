@@ -8,6 +8,8 @@
 
 (when window-system (set-exec-path-from-shell-PATH))
 
+(global-visual-line-mode 1) ;; break lines on word boundry
+
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height
 ;; (in lines high) Emacs will have whenever you start it
