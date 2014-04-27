@@ -146,3 +146,5 @@
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
 
+
+(global-set-key (kbd "C-x g") 'magit-status)
