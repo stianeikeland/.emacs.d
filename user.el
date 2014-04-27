@@ -146,6 +146,9 @@
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
 
+(auto-fill-mode 1)
+(setq comment-auto-fill-only-comments t)
+
 ; Always newline and indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
