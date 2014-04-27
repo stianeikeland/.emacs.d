@@ -69,3 +69,9 @@
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+(require 'git-gutter)
+(global-git-gutter-mode t)
+;(setq git-gutter:added-sign "+ ")
+;(setq git-gutter:deleted-sign "- ")
+;(setq git-gutter:modified-sign "= ")
