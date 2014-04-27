@@ -146,5 +146,7 @@
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
 
+; Always newline and indent
+(define-key global-map (kbd "RET") 'newline-and-indent)
 
 (global-set-key (kbd "C-x g") 'magit-status)
