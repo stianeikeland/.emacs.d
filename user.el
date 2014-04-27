@@ -75,3 +75,8 @@
 ;(setq git-gutter:added-sign "+ ")
 ;(setq git-gutter:deleted-sign "- ")
 ;(setq git-gutter:modified-sign "= ")
+
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c u") 'uncomment-region)
+
+
