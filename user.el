@@ -89,7 +89,8 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 ; Review this...
-(setq projectile-completion-system 'grizzl)
+;(setq projectile-completion-system 'grizzl)
+(setq projectile-completion-system 'ido)
 
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'se-project)
@@ -103,6 +104,15 @@
 (nyan-mode 1)
 (setq nyan-bar-length 16
       nyan-wavy-trail t)
+
+; Flx ido mode
+(package-require 'flx-ido)
+(package-require 'ido-vertical-mode)
+
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
 (provide 'user)
 
 ;;; user.el ends here
