@@ -97,6 +97,7 @@
 ; Review this...
 (setq projectile-completion-system 'grizzl)
 
+(add-to-list 'load-path "~/.emacs.d/")
 (require 'se-project)
 (require 'se-edit)
 (require 'se-git)
