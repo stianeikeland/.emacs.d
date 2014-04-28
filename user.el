@@ -41,6 +41,11 @@
 ;;(load-theme 'tomorrow-night-bright t)
 (load-theme 'tomorrow-night t)
 
+;; Default tomorrow-night line numbers are unreadable...
+(custom-set-faces
+ '(linum ((t (:foreground "gray53" :inherit
+                          (shadow default))))))
+
 ;(set-cursor-color "yellow")
 
 (set-face-attribute 'default nil :height 120)
