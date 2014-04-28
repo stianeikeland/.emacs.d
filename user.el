@@ -65,12 +65,6 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 
 (global-set-key "\M- " 'hippie-expand)
-(global-set-key [C-tab] 'other-window)
-
-(global-set-key [C-S-tab]
-    (lambda ()
-      (interactive)
-      (other-window -1)))
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 

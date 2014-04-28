@@ -36,4 +36,12 @@
 
 (global-set-key (kbd "C-x C-o") 'rotate-windows)
 
+;; Next and prev window
+(global-set-key [C-tab] 'other-window)
+
+(global-set-key [C-S-tab]
+    (lambda ()
+      (interactive)
+      (other-window -1)))
+
 (provide 'se-nav)
