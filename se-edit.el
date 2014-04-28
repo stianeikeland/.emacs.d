@@ -41,6 +41,7 @@
     (setq deactivate-mark nil)
     (exchange-point-and-mark)))
 (global-set-key (kbd "C-M-<down>") 'duplicate-start-of-line-or-region)
+(global-set-key (kbd "C-c d") 'duplicate-start-of-line-or-region)
 
 ;; Multiple cursors from @magnars
 (package-require 'multiple-cursors)
@@ -107,5 +108,9 @@
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c u") 'uncomment-region)
 
-(provide 'se-edit)
+;; Line movement
+(package-require 'move-text)
+(global-set-key (kbd "<C-S-down>") 'move-text-down)
+(global-set-key (kbd "<C-S-up>") 'move-text-up)
 
+(provide 'se-edit)
