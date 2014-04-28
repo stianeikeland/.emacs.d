@@ -101,6 +101,7 @@
 (require 'se-edit)
 (require 'se-git)
 (require 'se-nav)
+(require 'se-style)
 
 (provide 'user)
 
