@@ -69,12 +69,6 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-(require 'git-gutter)
-(global-git-gutter-mode t)
-;(setq git-gutter:added-sign "+ ")
-;(setq git-gutter:deleted-sign "- ")
-;(setq git-gutter:modified-sign "= ")
-
 (defun package-require (pkg)
   "Install a package only if it's not already installed."
   (when (not (package-installed-p pkg))
@@ -95,13 +89,12 @@
 ; Always newline and indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-(global-set-key (kbd "C-x g") 'magit-status)
-
 ; Review this...
 (setq projectile-completion-system 'grizzl)
 
 (require 'se-project)
 (require 'se-edit)
+(require 'se-git)
 
 (provide 'user)
 
