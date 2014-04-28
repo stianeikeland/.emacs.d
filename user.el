@@ -149,6 +149,13 @@
 ; Lines are 80 characters wide
 (setq fill-column 80)
 
+; Guess indentation for html, default 2
+(add-hook 'sgml-mode-hook
+          (lambda ()
+            ;; Default indentation to 2, but let SGML mode guess, too.
+            (set (make-local-variable 'sgml-basic-offset) 2)
+            (sgml-guess-indent)))
+
 (provide 'user)
 
 ;;; user.el ends here
