@@ -95,6 +95,7 @@
 (require 'se-project)
 (require 'se-edit)
 (require 'se-git)
+(require 'se-nav)
 
 (provide 'user)
 
