@@ -41,6 +41,8 @@
 ;;(load-theme 'tomorrow-night-bright t)
 (load-theme 'tomorrow-night t)
 
+;(set-cursor-color "yellow")
+
 (set-face-attribute 'default nil :height 120)
 
 ;; Flyspell often slows down editing so it's turned off
@@ -67,66 +69,16 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-
 (require 'git-gutter)
 (global-git-gutter-mode t)
 ;(setq git-gutter:added-sign "+ ")
 ;(setq git-gutter:deleted-sign "- ")
 ;(setq git-gutter:modified-sign "= ")
 
-(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
-
-
-;; Clever newline:
-
-(defun open-line-below ()
-  (interactive)
-  (end-of-line)
-  (newline)
-  (indent-for-tab-command))
-
-(defun open-line-above ()
-  (interactive)
-  (beginning-of-line)
-  (newline)
-  (forward-line -1)
-  (indent-for-tab-command))
-
-(defun new-line-in-between ()
-  (interactive)
-  (newline)
-  (save-excursion
-    (newline)
-    (indent-for-tab-command))
-  (indent-for-tab-command))
-
-(defun new-line-dwim ()
-  (interactive)
-  (let ((break-open-pair (or (and (looking-back "{" 1) (looking-at "}"))
-                             (and (looking-back ">" 1) (looking-at "<"))
-                             (and (looking-back "(" 1) (looking-at ")"))
-                             (and (looking-back "\\[" 1) (looking-at "\\]")))))
-    (newline)
-    (when break-open-pair
-      (save-excursion
-        (newline)
-        (indent-for-tab-command)))
-    (indent-for-tab-command)))
-
-(defun open-line-and-indent ()
-  (interactive)
-  (newline-and-indent)
-  (end-of-line 0)
-  (indent-for-tab-command))
-
-(global-set-key (kbd "C-o") 'open-line-and-indent)
-(global-set-key (kbd "<C-return>") 'open-line-below)
-(global-set-key (kbd "<C-S-return>") 'open-line-above)
-(global-set-key (kbd "<M-return>") 'new-line-dwim)
-
+(defun package-require (pkg)
+  "Install a package only if it's not already installed."
+  (when (not (package-installed-p pkg))
+    (package-install pkg)))
 
 (defun goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input"
@@ -137,15 +89,6 @@
         (call-interactively 'goto-line))
     (linum-mode -1)))
 
-;; Multiple cursors
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
-
-
 (auto-fill-mode 1)
 (setq comment-auto-fill-only-comments t)
 
@@ -153,3 +96,13 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (global-set-key (kbd "C-x g") 'magit-status)
+
+; Review this...
+(setq projectile-completion-system 'grizzl)
+
+(require 'se-project)
+(require 'se-edit)
+
+(provide 'user)
+
+;;; user.el ends here
