@@ -129,6 +129,26 @@
 (setq ido-use-faces nil)
 (ido-vertical-mode 1)
 (setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
+
+; Smart parens
+(package-require 'smartparens)
+(require 'smartparens-config)
+
+(--each '(css-mode-hook
+          restclient-mode-hook
+          js-mode-hook
+          java-mode
+          ruby-mode
+          markdown-mode
+          groovy-mode)
+  (add-hook it 'turn-on-smartparens-mode))
+
+(setq sp-highlight-pair-overlay nil)
+(setq sp-autoescape-string-quote nil)
+
+; Lines are 80 characters wide
+(setq fill-column 80)
+
 (provide 'user)
 
 ;;; user.el ends here
