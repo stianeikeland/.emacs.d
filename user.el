@@ -105,6 +105,22 @@
 (setq nyan-bar-length 16
       nyan-wavy-trail t)
 
+; Cleanup modeline
+(package-require 'diminish)
+(eval-after-load "ethan-wspace" '(diminish 'ethan-wspace-mode))
+(eval-after-load "git-gutter" '(diminish 'git-gutter-mode))
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))
+(eval-after-load "projectile" '(diminish 'projectile-mode))
+
+(defmacro rename-modeline (package-name mode new-name)
+  `(eval-after-load ,package-name
+     '(defadvice ,mode (after rename-modeline activate)
+        (setq mode-name ,new-name))))
+
+(rename-modeline "js2-mode" js2-mode "JS2")
+(rename-modeline "clojure-mode" clojure-mode "Clj")
+
 ; Flx ido mode
 (package-require 'flx-ido)
 (package-require 'ido-vertical-mode)
