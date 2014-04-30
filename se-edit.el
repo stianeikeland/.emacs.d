@@ -113,4 +113,20 @@
 (global-set-key (kbd "<C-S-down>") 'move-text-down)
 (global-set-key (kbd "<C-S-up>") 'move-text-up)
 
+
+;; Goto line (with feedback)
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (call-interactively 'goto-line))
+    (linum-mode -1)))
+
+(define-key global-map (kbd "s-l") 'goto-line-with-feedback)
+(define-key global-map (kbd "M-g g") 'goto-line-with-feedback)
+(define-key global-map (kbd "M-g M-g") 'goto-line-with-feedback)
+
+
 (provide 'se-edit)

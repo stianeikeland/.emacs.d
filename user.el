@@ -75,14 +75,6 @@
   (when (not (package-installed-p pkg))
     (package-install pkg)))
 
-(defun goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
-  (interactive)
-  (unwind-protect
-      (progn
-        (linum-mode 1)
-        (call-interactively 'goto-line))
-    (linum-mode -1)))
 
 (auto-fill-mode 1)
 (setq comment-auto-fill-only-comments t)
