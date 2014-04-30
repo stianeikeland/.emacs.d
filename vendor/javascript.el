@@ -3,6 +3,10 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
 (require 'js2-mode)
+(require 'js2-refactor)
+
+; Js-refactor key prefix
+(js2r-add-keybindings-with-prefix "C-c C-m")
 
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-auto-indent-p t)
@@ -23,7 +27,16 @@
                                         (match-end 1) "\u2190")
                         nil)))))
 
+;; js2-mode steals TAB, let's steal it back for yasnippet
+(defun js2-tab-properly ()
+  (interactive)
+  (let ((yas-fallback-behavior 'return-nil))
+    (unless (yas-expand)
+      (indent-for-tab-command)
+      (if (looking-back "^\s*")
+          (back-to-indentation)))))
 
+(define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
 
 ;; Indentation and auto insert matching bracket.
 
@@ -36,9 +49,9 @@
            (offset (- (current-column) (current-indentation)))
            (indentation (js--proper-indentation parse-status))
            node)
- 
+
       (save-excursion
- 
+
         (back-to-indentation)
         ;; consecutive declarations in a var statement are nice if
         ;; properly aligned, i.e:
@@ -50,10 +63,10 @@
                    (= js2-NAME (js2-node-type node))
                    (= js2-VAR (js2-node-type (js2-node-parent node))))
           (setq indentation ( 4 indentation))))
- 
+
       (indent-line-to indentation)
       (when (> offset 0) (forward-char offset)))))
- 
+
 (defun my-indent-sexp ()
   (interactive)
   (save-restriction
@@ -77,7 +90,7 @@
           (forward-line))
         (run-with-timer 0.5 nil '(lambda(ovl)
                                    (delete-overlay ovl)) ovl)))))
- 
+
 (defun my-js2-mode-hook ()
   (require 'js)
   (setq js-indent-level 4
@@ -87,7 +100,7 @@
   (c-toggle-hungry-state 1)
   (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
   (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
-  (define-key js2-mode-map [(meta control \;)] 
+  (define-key js2-mode-map [(meta control \;)]
     '(lambda()
        (interactive)
        (insert "/* -----[ ")
@@ -101,5 +114,5 @@
   (if (featurep 'js2-highlight-vars)
     (js2-highlight-vars-mode))
   (message "My JS2 hook"))
- 
-(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+
+;(add-hook 'js2-mode-hook 'my-js2-mode-hook)
