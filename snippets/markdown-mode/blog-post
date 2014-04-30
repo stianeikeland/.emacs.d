@@ -1,0 +1,10 @@
+# name: blog-post
+# key: post
+# --
+{ :slug "${1:slug-url-string}"
+  :title "${2:Blog title}"
+  :date "${3:xxxx-xx-xx xx:xx:xx}"
+  :image "${4:/images/2014-04-07-new-blog-engine/header.png}"
+  :tags #{}}
+
+------

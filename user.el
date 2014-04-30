@@ -1,4 +1,5 @@
-;; This is where your customizations should live
+;; Based on starter kit
+;; Lots of stuff stolen from @bodil and @magnars
 
 ;; env PATH
 (defun set-exec-path-from-shell-PATH ()
@@ -99,6 +100,7 @@
 (require 'se-git)
 (require 'se-nav)
 (require 'se-style)
+(require 'se-snippets)
 
 ; Nyan position
 (package-require 'nyan-mode)
