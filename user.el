@@ -78,6 +78,7 @@
 
 (auto-fill-mode 1)
 (setq comment-auto-fill-only-comments t)
+(setq-default fill-column 80) ; oh come on, 80 width has been standard since forever..
 
 ; Always newline and indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
