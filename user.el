@@ -94,6 +94,7 @@
 (require 'se-nav)
 (require 'se-style)
 (require 'se-snippets)
+(require 'se-deft)
 
 ; Nyan position
 (package-require 'nyan-mode)
