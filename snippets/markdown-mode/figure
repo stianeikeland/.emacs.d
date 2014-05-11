@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: figure big
+# key: figure
+# --
+<figure>
+    <a href="${1:img}"><img src="${1:img}"></a>
+</figure>
