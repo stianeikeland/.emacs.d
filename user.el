@@ -141,7 +141,8 @@
           java-mode
           ruby-mode
           markdown-mode
-          groovy-mode)
+          groovy-mode
+          js2-mode-hook)
   (add-hook it 'turn-on-smartparens-mode))
 
 (setq sp-highlight-pair-overlay nil)
