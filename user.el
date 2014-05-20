@@ -158,6 +158,10 @@
             (set (make-local-variable 'sgml-basic-offset) 2)
             (sgml-guess-indent)))
 
+;; Use undo-tree
+(package-require 'undo-tree)
+(global-undo-tree-mode)
+
 (provide 'user)
 
 ;;; user.el ends here
