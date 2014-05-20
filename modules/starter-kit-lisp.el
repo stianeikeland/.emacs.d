@@ -46,6 +46,7 @@
   (add-hook 'emacs-lisp-mode-hook 'esk-remove-elc-on-save)
   (add-hook 'emacs-lisp-mode-hook 'esk-prog-mode-hook)
   (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode)
+  (add-hook 'emacs-lisp-mode-hook 'hl-comment-block-enable)
 
   (defun esk-remove-elc-on-save ()
     "If you're saving an elisp file, likely the .elc is no longer valid."
