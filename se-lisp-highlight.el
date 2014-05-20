@@ -1,8 +1,8 @@
 ;;; se-lisp-highlight -- highlight top level comments in lisps
 ;;;
-;; stolen from: https://github.com/aroemers/.emacs.d/blob/master/init.el
+;;; stolen from: https://github.com/aroemers/.emacs.d/blob/master/init.el
 
-(require 'cl)
+(package-require 'cl)
 
 (defun overlays-with-property-in (begin end property &optional value)
   "Return the overlays that overlap with the region begin to end, having a the

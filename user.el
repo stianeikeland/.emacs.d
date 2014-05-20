@@ -95,6 +95,7 @@
 (require 'se-style)
 (require 'se-snippets)
 (require 'se-deft)
+(require 'se-lisp-highlight)
 
 ; Nyan position
 (package-require 'nyan-mode)
@@ -154,13 +155,25 @@
 ; Guess indentation for html, default 2
 (add-hook 'sgml-mode-hook
           (lambda ()
-            ;; Default indentation to 2, but let SGML mode guess, too.
+            ;; Default indentation to 2, but let sgml mode guess, too.
             (set (make-local-variable 'sgml-basic-offset) 2)
             (sgml-guess-indent)))
 
-;; Use undo-tree
+;; use undo-tree
 (package-require 'undo-tree)
 (global-undo-tree-mode)
+
+;; Open the current file as root.
+(defun current-as-root ()
+  "Reopen current file as root"
+  (interactive)
+  (set-visited-file-name (concat "/sudo::" (buffer-file-name)))
+  (setq buffer-read-only nil))
+
+
+(add-hook 'clojure-mode-hook 'hl-comment-block-enable)
+(add-hook 'emacs-lisp-mode-hook 'hl-comment-block-enable)
+
 
 (provide 'user)
 

@@ -19,6 +19,3 @@
 
 (require 'rainbow-delimiters)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-
-(require 'se-lisp-highlight)
-(add-hook 'clojure-mode-hook 'hl-comment-block-enable)
