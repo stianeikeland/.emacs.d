@@ -162,6 +162,8 @@
 ;; use undo-tree
 (package-require 'undo-tree)
 (global-undo-tree-mode)
+;; Don't open in new window when doing 'open -a Emacs filename.txt'
+(setq ns-pop-up-frames nil)
 
 ;; Open the current file as root.
 (defun current-as-root ()
