@@ -178,8 +178,14 @@
 
 
 ;; Shell indentation
-(setq sh-basic-offset 4
-      sh-indentation 4)
+(defun se-shell-mode ()
+  (interactive)
+  (setq sh-basic-offset 4
+        sh-indentation 4
+        sh-indent-for-case-label 0
+        sh-indent-for-case-alt '+))
+
+(add-hook 'sh-mode-hook 'se-shell-mode)
 
 (provide 'user)
 
