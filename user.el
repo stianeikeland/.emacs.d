@@ -177,6 +177,10 @@
 (add-hook 'emacs-lisp-mode-hook 'hl-comment-block-enable)
 
 
+;; Shell indentation
+(setq sh-basic-offset 4
+      sh-indentation 4)
+
 (provide 'user)
 
 ;;; user.el ends here
