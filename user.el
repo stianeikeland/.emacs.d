@@ -187,6 +187,9 @@
 
 (add-hook 'sh-mode-hook 'se-shell-mode)
 
+;; Close current buffer using cmd-w
+(global-set-key (kbd "s-w") 'kill-this-buffer)
+
 (provide 'user)
 
 ;;; user.el ends here
