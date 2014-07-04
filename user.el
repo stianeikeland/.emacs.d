@@ -1,3 +1,5 @@
+;;; Stian's emacs setup
+
 ;; Based on starter kit
 ;; Lots of stuff stolen from @bodil and @magnars
 
@@ -160,8 +162,9 @@
             (sgml-guess-indent)))
 
 ;; use undo-tree
-(package-require 'undo-tree)
-(global-undo-tree-mode)
+;(package-require 'undo-tree)
+;(global-undo-tree-mode)
+
 ;; Don't open in new window when doing 'open -a Emacs filename.txt'
 (setq ns-pop-up-frames nil)
 
@@ -176,6 +179,7 @@
 (add-hook 'clojure-mode-hook 'hl-comment-block-enable)
 (add-hook 'emacs-lisp-mode-hook 'hl-comment-block-enable)
 
+(setq mode-require-final-newline nil)
 
 ;; Shell indentation
 (defun se-shell-mode ()
@@ -189,6 +193,64 @@
 
 ;; Close current buffer using cmd-w
 (global-set-key (kbd "s-w") 'kill-this-buffer)
+
+(setq-default c-basic-offset 4)
+
+;; Dired (less verbose):
+(package-require 'dired-details+)
+
+(defun rename-current-buffer-file ()
+  "Renames current buffer and file it is visiting."
+  (interactive)
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (error "Buffer '%s' is not visiting a file!" name)
+      (let ((new-name (read-file-name "New name: " filename)))
+        (if (get-buffer new-name)
+            (error "A buffer named '%s' already exists!" new-name)
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil)
+          (message "File '%s' successfully renamed to '%s'"
+                   name (file-name-nondirectory new-name)))))))
+
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+
+(defun delete-current-buffer-file ()
+  "Removes file connected to current buffer and kills buffer."
+  (interactive)
+  (let ((filename (buffer-file-name))
+        (buffer (current-buffer))
+        (name (buffer-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (ido-kill-buffer)
+      (when (yes-or-no-p "Are you sure you want to remove this file? ")
+        (delete-file filename)
+        (kill-buffer buffer)
+        (message "File '%s' successfully removed" filename)))))
+
+;; Magit whitespace diffs
+(defun magit-toggle-whitespace ()
+  (interactive)
+  (if (member "-w" magit-diff-options)
+      (magit-dont-ignore-whitespace)
+    (magit-ignore-whitespace)))
+
+(defun magit-ignore-whitespace ()
+  (interactive)
+  (add-to-list 'magit-diff-options "-w")
+  (magit-refresh))
+
+(defun magit-dont-ignore-whitespace ()
+  (interactive)
+  (setq magit-diff-options (remove "-w" magit-diff-options))
+  (magit-refresh))
+
+;;(define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
+
+
 
 (provide 'user)
 
