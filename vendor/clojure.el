@@ -15,9 +15,13 @@
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook 'auto-complete-mode)
 
 (require 'midje-mode)
 (add-hook 'clojure-mode-hook 'midje-mode)
 
 (require 'rainbow-delimiters)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
+(require 'auto-complete)
+(add-hook 'clojure-mode-hook 'auto-complete-mode)
