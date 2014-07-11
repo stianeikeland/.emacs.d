@@ -9,6 +9,8 @@
 (setq cider-auto-select-error-buffer t)
 (setq cider-repl-history-file "~/.emacs.d/cider-history")
 (setq cider-repl-wrap-history t)
+(setq cider-repl-print-length 100)
+(setq cider-repl-history-size 1000)
 
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
