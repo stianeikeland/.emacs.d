@@ -51,7 +51,21 @@
 
 ;(set-cursor-color "yellow")
 
-(set-face-attribute 'default nil :height 120)
+;(set-face-attribute 'default nil :height 120)
+
+(defun presentation-mode ()
+  "Bigger fonts and stuff for presentations"
+  (interactive)
+  (set-face-attribute 'default nil :height 200)
+  (load-theme 'tomorrow-night-bright t))
+
+(defun standard-editing-mode ()
+  "Normal editing mode.."
+  (interactive)
+  (set-face-attribute 'default nil :height 140)
+  (load-theme 'tomorrow-night t))
+
+(standard-editing-mode)
 
 ;; Flyspell often slows down editing so it's turned off
 (remove-hook 'text-mode-hook 'turn-on-flyspell)
