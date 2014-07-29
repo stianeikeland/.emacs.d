@@ -274,6 +274,8 @@
   (let ((use-dialog-box nil))
     ad-do-it))
 
+;; Use mdfind for locate on mac
+(setq locate-command "mdfind")
 
 (provide 'user)
 
