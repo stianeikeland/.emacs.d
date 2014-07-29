@@ -281,6 +281,10 @@
 (global-unset-key (kbd "s-t"))
 (global-set-key (kbd "s-t") 'ido-switch-buffer)
 
+;; Projectile switch file with cmd-p
+(global-unset-key (kbd "s-p"))
+(global-set-key (kbd "s-p") 'projectile-find-file)
+
 (provide 'user)
 
 ;;; user.el ends here
