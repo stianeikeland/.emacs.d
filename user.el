@@ -277,6 +277,10 @@
 ;; Use mdfind for locate on mac
 (setq locate-command "mdfind")
 
+;; Switch buffer with cmd-t.
+(global-unset-key (kbd "s-t"))
+(global-set-key (kbd "s-t") 'ido-switch-buffer)
+
 (provide 'user)
 
 ;;; user.el ends here
