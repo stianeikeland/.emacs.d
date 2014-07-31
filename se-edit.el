@@ -128,5 +128,7 @@
 (define-key global-map (kbd "M-g g") 'goto-line-with-feedback)
 (define-key global-map (kbd "M-g M-g") 'goto-line-with-feedback)
 
+;; Yank replaces selected text
+(delete-selection-mode 1)
 
 (provide 'se-edit)
