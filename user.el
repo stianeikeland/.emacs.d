@@ -77,12 +77,15 @@
 (setq hippie-expand-try-functions-list (delete 'try-complete-file-name hippie-expand-try-functions-list))
 (setq hippie-expand-try-functions-list (delete 'try-complete-file-name-partially hippie-expand-try-functions-list))
 
+(global-set-key "\M- " 'hippie-expand)
+
 (setq ido-use-filename-at-point nil)
 
 ;; Save here instead of littering current directory with emacs backup files
+(defvar autosave-dir (expand-file-name "~/.emacs.d/autosave/"))
 (setq backup-directory-alist `(("." . "~/.saves")))
-
-(global-set-key "\M- " 'hippie-expand)
+(setq auto-save-list-file-prefix autosave-dir)
+(setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
