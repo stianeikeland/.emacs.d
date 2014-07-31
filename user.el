@@ -281,8 +281,8 @@
 (setq locate-command "mdfind")
 
 ;; Switch buffer with cmd-t.
-(global-unset-key (kbd "s-t"))
-(global-set-key (kbd "s-t") 'ido-switch-buffer)
+(global-unset-key (kbd "s-b"))
+(global-set-key (kbd "s-b") 'ido-switch-buffer)
 
 ;; Projectile switch file with cmd-p
 (global-unset-key (kbd "s-p"))
