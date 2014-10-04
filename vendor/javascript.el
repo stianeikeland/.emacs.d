@@ -116,3 +116,7 @@
   (message "My JS2 hook"))
 
 ;(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+
+;; Don't override global M-j keybinding (join lines)
+(eval-after-load "js2-mode"
+  '(define-key js2-mode-map (kbd "M-j") nil))
