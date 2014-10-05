@@ -267,6 +267,40 @@
 
 ;;(define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
 
+;; move me:
+(package-require 'clj-refactor)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+                               (cljr-add-keybindings-with-prefix "C-c C-m")))
+
+;; and move me:
+;; Use auto-complete, but bind to m-tab
+(package-require 'auto-complete)
+(setq ac-auto-start nil)
+;;(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(global-set-key "\M-TAB" 'auto-complete)
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+
+;; Also use ac in nrepl
+;; (package-require 'ac-nrepl)
+;; (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+;; (add-hook 'cider-mode-hook 'ac-nrepl-setup)
+;; (eval-after-load "auto-complete"
+;;   '(add-to-list 'ac-modes 'cider-repl-mode))
+
+;; We want completion in the repl as well
+;; (defun set-auto-complete-as-completion-at-point-function ()
+;;   (setq completion-at-point-functions '(auto-complete)))
+;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+;; (add-hook 'cider-repl-mode-hook 'set-auto-complete-as-completion-at-point-function)
+;; (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+;; and use the nice doc popup
+
+;; (eval-after-load "cider"
+;;   '(define-key cider-mode-map (kbd "C-c d") 'ac-cider-popup-doc))
+
 ;; Prevent f*(#$ annoying popup windows..
 (defadvice yes-or-no-p (around prevent-dialog activate)
   "Prevent yes-or-no-p from activating a dialog"
