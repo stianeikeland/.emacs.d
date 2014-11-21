@@ -275,11 +275,13 @@
 
 ;; and move me:
 ;; Use auto-complete, but bind to m-tab
-(package-require 'auto-complete)
-(setq ac-auto-start nil)
+;;(package-require 'auto-complete)
+;;(setq ac-auto-start nil)
 ;;(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-(global-set-key "\M-TAB" 'auto-complete)
-(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+;;(global-set-key "\M-TAB" 'auto-complete)
+
+;; trying company:
+;; (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
 
 ;; Also use ac in nrepl
 ;; (package-require 'ac-nrepl)
