@@ -120,7 +120,7 @@
 (package-require 'nyan-mode)
 (nyan-mode 1)
 (setq nyan-bar-length 16
-      nyan-wavy-trail t)
+      nyan-wavy-trail nil)
 
 ; Cleanup modeline
 (package-require 'diminish)
