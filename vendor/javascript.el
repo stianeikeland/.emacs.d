@@ -4,7 +4,7 @@
 
 (require 'js2-mode)
 (require 'js2-refactor)
-(require 'ac-js2-mode)
+(require 'ac-js2)
 
 ; Js-refactor key prefix
 (js2r-add-keybindings-with-prefix "C-c C-m")
@@ -121,6 +121,32 @@
 
 ;; More highlighting plz.. (ECMA stuff)
 (setq js2-highlight-level 3)
+
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+;; (eval-after-load 'tern
+;;   '(progn
+;;      (require 'tern-auto-complete)
+;;      (setq tern-ac-on-dot nil)
+;;      (message "brillekake")
+;;      (define-key js2-mode-map (kbd "M-TAB") 'tern-ac-complete)
+;;      (tern-ac-setup)))
+
+(defun js2-my-keys ()
+  (progn
+    (message "balle")
+    (local-unset-key (kbd "C-M-i"))
+    (define-key js2-mode-map (kbd "C-M-i") 'tern-ac-complete)))
+
+(add-hook 'js2-mode-hook 'js2-my-keys)
+
+(eval-after-load 'auto-complete
+  '(eval-after-load 'tern
+     '(progn
+        (require 'tern-auto-complete)
+        (tern-ac-setup))))
+
+(add-hook 'js2-mode-hook 'js2-my-keys)
+
 
 ;; Don't override global M-j keybinding (join lines)
 (eval-after-load "js2-mode"
