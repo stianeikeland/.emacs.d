@@ -1,3 +1,7 @@
+;;; stian-javascript.el -- js2mode setup
+
+;; This is a mess! FIXME CLEANUP!!!
+
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
@@ -151,3 +155,5 @@
 ;; Don't override global M-j keybinding (join lines)
 (eval-after-load "js2-mode"
   '(define-key js2-mode-map (kbd "M-j") nil))
+
+(provide 'stian-javascript)

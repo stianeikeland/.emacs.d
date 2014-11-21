@@ -1,4 +1,4 @@
-;;; se-edit.el - global editing stuff
+;;; stian-edit.el - global editing stuff
 
 ;; Join lines
 (defun join-line-or-lines-in-region ()
@@ -140,4 +140,4 @@
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "C-c u") 'uncomment-region)
 
-(provide 'se-edit)
+(provide 'stian-edit)

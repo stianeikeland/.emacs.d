@@ -1,4 +1,4 @@
-;;; se-lisp-highlight -- highlight top level comments in lisps
+;;; stian-lisp-highlight -- highlight top level comments in lisps
 ;;;
 ;;; stolen from: https://github.com/aroemers/.emacs.d/blob/master/init.el
 
@@ -59,4 +59,8 @@
     (goto-char (point-min))
     (while (hl-comment-block (point-max)))))
 
-(provide 'se-lisp-highlight)
+
+(add-hook 'clojure-mode-hook 'hl-comment-block-enable)
+(add-hook 'emacs-lisp-mode-hook 'hl-comment-block-enable)
+
+(provide 'stian-lisp-highlight)

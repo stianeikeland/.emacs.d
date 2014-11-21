@@ -1,4 +1,4 @@
-;;; se-deft -- deft setup
+;;; stian-deft -- deft setup
 
 (package-require 'deft)
 
@@ -9,4 +9,4 @@
 
 (global-set-key [f8] 'deft)
 
-(provide 'se-deft)
+(provide 'stian-deft)

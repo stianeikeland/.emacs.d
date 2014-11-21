@@ -1,4 +1,7 @@
-;; clojure
+;;; stian-clojure -- configure clojure mode
+
+;; clean me please!!!!! FIXME!!!
+
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 
 ;; cider
@@ -15,10 +18,10 @@
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
-(require 'midje-mode)
+(package-require 'midje-mode)
 (add-hook 'clojure-mode-hook 'midje-mode)
 
-(require 'rainbow-delimiters)
+(package-require 'rainbow-delimiters)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
@@ -31,7 +34,7 @@
 
 ;;; Try company-mode (vs ac-mode)
 
-(require 'company)
+(package-require 'company)
 
 (setq company-idle-delay 0.5)
 (setq company-tooltip-limit 10)
@@ -43,16 +46,6 @@
 (global-company-mode 1)
 (add-hook 'cider-repl-mode-hook 'company-mode)
 (add-hook 'cider-mode-hook 'company-mode)
-
-(require 'color)
-
-(let ((bg (face-attribute 'default :background)))
-  (custom-set-faces
-   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
-   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
-   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
-   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
-   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
 
 ;; (require 'auto-complete)
@@ -69,4 +62,15 @@
 ;; (eval-after-load "auto-complete"
 ;;   '(add-to-list 'ac-modes 'cider-mode))
 
-(require 'align-cljlet)
+
+(package-require 'clj-refactor)
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (clj-refactor-mode 1)
+            (cljr-add-keybindings-with-prefix "C-c C-m")))
+
+
+(package-require 'align-cljlet)
+
+
+(provide 'stian-clojure)

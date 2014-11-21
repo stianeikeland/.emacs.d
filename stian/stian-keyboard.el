@@ -1,0 +1,22 @@
+;;; stian-keyboard.el -- keyboard shortcuts / remappings
+
+; Always newline and indent
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
+;; Close current buffer using cmd-w
+(global-set-key (kbd "s-w") 'kill-this-buffer)
+
+;; Rename current buffer file
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+
+;; Switch buffer with cmd-t.
+(global-unset-key (kbd "s-b"))
+(global-set-key (kbd "s-b") 'ido-switch-buffer)
+
+;; Projectile switch file with cmd-p
+(global-unset-key (kbd "s-p"))
+(global-set-key (kbd "s-p") 'projectile-find-file)
+
+(global-set-key (kbd "C-c C-f") 'projectile-find-file)
+
+(provide 'stian-keyboard)

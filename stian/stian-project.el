@@ -1,8 +1,7 @@
-;;; se-project.el -- projectile for project management
+;;; stian-project.el -- projectile for project management
 
 (package-require 'projectile)
 (projectile-global-mode)
-(global-set-key (kbd "C-c C-f") 'projectile-find-file)
 
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
 
@@ -12,4 +11,6 @@
 ;; (require 'project-explorer)
 ;; (setq pe/omit-regex (concat pe/omit-regex "\\|^node_modules$"))
 
-(provide 'se-project)
+(setq projectile-completion-system 'ido)
+
+(provide 'stian-project)

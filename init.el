@@ -1,16 +1,81 @@
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("tromey" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(dolist (source '(("melpa" . "http://melpa.org/packages/")
+                  ("marmalade" . "http://marmalade-repo.org/packages/")
+                  ("elpa" . "http://tromey.com/elpa/")))
+  (add-to-list 'package-archives source t))
+
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(load "~/.emacs.d/user.el")
+;; Add .emacs.d/stian to load-path
+(setq dotfiles-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
+(add-to-list 'load-path (concat dotfiles-dir "stian"))
+
+;; Set up environment vars
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when window-system (set-exec-path-from-shell-PATH))
+
+;; Install if not present on require
+(defun package-require (pkg)
+  "Install a package only if it's not already installed."
+  (when (not (package-installed-p pkg))
+    (package-install pkg)))
+
+;; Save here instead of littering current directory with emacs backup files
+(defvar autosave-dir (expand-file-name "~/.emacs.d/autosave/"))
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq auto-save-list-file-prefix autosave-dir)
+(setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
+
+;; Prevent f*(#$ annoying popup windows..
+(defadvice yes-or-no-p (around prevent-dialog activate)
+  "Prevent yes-or-no-p from activating a dialog"
+  (let ((use-dialog-box nil))
+    ad-do-it))
+(defadvice y-or-n-p (around prevent-dialog-yorn activate)
+  "Prevent y-or-n-p from activating a dialog"
+  (let ((use-dialog-box nil))
+    ad-do-it))
+
+
+;; My config
+
+(setq my-configs
+      '(stian-theme
+        stian-fun
+        stian-nav
+        stian-mac
+        stian-nyan
+        stian-diminish
+        stian-hippie
+        stian-ido
+        stian-shell
+        stian-edit
+        stian-codestyle
+        stian-git
+        stian-project
+        stian-javascript
+        stian-smartparens
+        stian-snippets
+        stian-deft
+        stian-lisp-highlight
+        stian-clojure
+        stian-dired
+        stian-html
+        stian-keyboard
+        ))
+
+(dolist (file my-configs)
+  (require file))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

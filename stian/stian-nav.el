@@ -1,4 +1,4 @@
-;;; se-nav.el - navigation
+;;; stian-nav.el - navigation and window management
 
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line."
@@ -44,4 +44,23 @@
       (interactive)
       (other-window -1)))
 
-(provide 'se-nav)
+
+;; scroll in place
+(defun scroll-down-in-place (n)
+  (interactive "p")
+   (previous-line 5)
+   (unless (eq (window-start) (point-min))
+     (scroll-down 5)))
+
+(defun scroll-up-in-place (n)
+  (interactive "p")
+  (next-line 5)
+  (unless (eq (window-end) (point-max))
+    (scroll-up 5)))
+
+(global-set-key "\M-n" 'scroll-up-in-place)
+(global-set-key "\M-p" 'scroll-down-in-place)
+
+
+
+(provide 'stian-nav)
