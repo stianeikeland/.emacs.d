@@ -127,13 +127,6 @@
 (setq js2-highlight-level 3)
 
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-;; (eval-after-load 'tern
-;;   '(progn
-;;      (require 'tern-auto-complete)
-;;      (setq tern-ac-on-dot nil)
-;;      (message "brillekake")
-;;      (define-key js2-mode-map (kbd "M-TAB") 'tern-ac-complete)
-;;      (tern-ac-setup)))
 
 (defun js2-my-keys ()
   (progn

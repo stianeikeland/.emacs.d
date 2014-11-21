@@ -44,7 +44,6 @@
   (let ((use-dialog-box nil))
     ad-do-it))
 
-
 ;; My config
 
 (setq my-configs
@@ -67,6 +66,7 @@
         stian-deft
         stian-lisp-highlight
         stian-clojure
+        stian-company
         stian-dired
         stian-html
         stian-keyboard

@@ -19,4 +19,7 @@
 
 (global-set-key (kbd "C-c C-f") 'projectile-find-file)
 
+;; Complete using company
+(global-set-key [M-tab] 'company-complete)
+
 (provide 'stian-keyboard)
