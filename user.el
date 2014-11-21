@@ -338,6 +338,10 @@
 (global-set-key "\M-n" 'scroll-up-in-place)
 (global-set-key "\M-p" 'scroll-down-in-place)
 
+
+(require 'flymake-rust)
+(add-hook 'rust-mode-hook 'flymake-rust-load)
+
 (provide 'user)
 
 ;;; user.el ends here
