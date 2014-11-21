@@ -2,10 +2,14 @@
 
 ;; clean me please!!!!! FIXME!!!
 
+(package-require 'clojure-mode)
+
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs?$" . clojure-mode))
 
 ;; cider
-;;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(package-require 'cider)
+
 (setq cider-repl-pop-to-buffer-on-connect t)
 (setq cider-popup-stacktraces t)
 (setq cider-repl-popup-stacktraces t)
