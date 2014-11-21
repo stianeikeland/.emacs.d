@@ -322,6 +322,22 @@
 (global-unset-key (kbd "s-p"))
 (global-set-key (kbd "s-p") 'projectile-find-file)
 
+;; FIXME!
+(defun scroll-down-in-place (n)
+  (interactive "p")
+   (previous-line 5)
+   (unless (eq (window-start) (point-min))
+     (scroll-down 5)))
+
+(defun scroll-up-in-place (n)
+  (interactive "p")
+  (next-line 5)
+  (unless (eq (window-end) (point-max))
+    (scroll-up 5)))
+
+(global-set-key "\M-n" 'scroll-up-in-place)
+(global-set-key "\M-p" 'scroll-down-in-place)
+
 (provide 'user)
 
 ;;; user.el ends here
