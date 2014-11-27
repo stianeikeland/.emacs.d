@@ -22,4 +22,8 @@
 ;; Complete using company
 (global-set-key [M-tab] 'company-complete)
 
+;; Narrow-widen-dwim
+(global-unset-key (kbd "C-x n"))
+(global-set-key (kbd "C-x n") 'narrow-or-widen-dwim)
+
 (provide 'stian-keyboard)
