@@ -48,6 +48,7 @@
 
 (setq my-configs
       '(stian-theme
+        stian-goldenratio
         stian-fun
         stian-nav
         stian-mac
