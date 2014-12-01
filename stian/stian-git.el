@@ -1,7 +1,7 @@
 ;;; stian-git.el - magit setup
 
 (package-require 'magit)
-(package-require 'magit-gh-pulls)
+;;(package-require 'magit-gh-pulls)
 ;(global-set-key (kbd "C-x g") 'magit-status)
 
 (package-require 'git-gutter)
@@ -27,6 +27,6 @@
   (setq magit-diff-options (remove "-w" magit-diff-options))
   (magit-refresh))
 
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+;;(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 (provide 'stian-git)
