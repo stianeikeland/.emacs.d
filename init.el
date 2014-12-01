@@ -48,12 +48,12 @@
 
 (setq my-configs
       '(stian-theme
-        stian-goldenratio
         stian-fun
         stian-nav
         stian-mac
         stian-nyan
         stian-diminish
+        stian-goldenratio
         stian-hippie
         stian-ido
         stian-shell

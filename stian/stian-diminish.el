@@ -9,8 +9,12 @@
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode))
 (eval-after-load "magit-auto-revert-mode" '(diminish 'magit-auto-revert-mode))
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
 
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Ⓨ"))
+(eval-after-load "golden-ratio-mode" '(diminish 'golden-ratio-mode " ⊞"))
+(eval-after-load "golden" '(diminish 'golden-ratio-mode " ⊞"))
+(eval-after-load "flycheck-mode" '(diminish 'flycheck-mode " Ⓕ"))
+(eval-after-load "flyspell-mode" '(diminish 'flyspell-mode " Ⓢ"))
 
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
