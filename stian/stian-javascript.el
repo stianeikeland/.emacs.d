@@ -8,7 +8,7 @@
 
 (require 'js2-mode)
 (require 'js2-refactor)
-(require 'ac-js2)
+;(require 'ac-js2)
 
 ; Js-refactor key prefix
 (js2r-add-keybindings-with-prefix "C-c C-m")
@@ -121,7 +121,7 @@
   (message "My JS2 hook"))
 
 ;; You autocomplete me
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;;(add-hook 'js2-mode-hook 'ac-js2-mode)
 
 ;; More highlighting plz.. (ECMA stuff)
 (setq js2-highlight-level 3)
