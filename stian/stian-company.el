@@ -3,9 +3,11 @@
 (package-require 'company)
 (package-require 'company-quickhelp)
 
-(setq company-idle-delay 0.5)
-(setq company-tooltip-limit 10)
-(setq company-minimum-prefix-length 2)
+(setq company-idle-delay 0.5
+      company-show-numbers t
+      company-tooltip-limit 10
+      company-minimum-prefix-length 2
+      pos-tip-border-width 0)
 
 ;; invert the navigation direction if the the completion popup-isearch-match
 ;; is displayed on top (happens near the bottom of windows)
