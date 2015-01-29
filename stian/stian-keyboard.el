@@ -26,4 +26,37 @@
 (global-unset-key (kbd "C-x n"))
 (global-set-key (kbd "C-x n") 'narrow-or-widen-dwim)
 
+
+;; Emacs mac port
+
+;; Keys
+(global-set-key [(hyper a)] 'mark-whole-buffer)
+(global-set-key [(hyper v)] 'yank)
+(global-set-key [(hyper c)] 'kill-ring-save)
+(global-set-key [(hyper s)] 'save-buffer)
+(global-set-key [(hyper l)] 'goto-line)
+(global-set-key [(hyper w)] 'kill-this-buffer)
+(global-set-key [(hyper z)] 'undo)
+(global-unset-key [(hyper b)])
+(global-set-key [(hyper b)] 'ido-switch-buffer)
+(global-set-key [(hyper t)] 'ido-switch-buffer)
+(global-unset-key [(hyper p)])
+(global-set-key [(hyper p)] 'projectile-find-file)
+
+;; mac switch meta key
+(defun mac-switch-meta nil
+  "switch meta between Option and Command"
+  (interactive)
+  (if (eq mac-option-modifier nil)
+      (progn
+        (setq mac-option-modifier 'meta)
+        (setq mac-command-modifier 'hyper))
+    (progn
+      (setq mac-option-modifier nil)
+      (setq mac-command-modifier 'meta))))
+
+;; I want my old settings back!
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'hyper)
+
 (provide 'stian-keyboard)
