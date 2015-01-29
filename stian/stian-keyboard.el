@@ -59,4 +59,12 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
 
+(defun toggle-fullscreen ()
+  "Toggle full screen"
+  (interactive)
+  (set-frame-parameter nil 'fullscreen (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
+
+;; there's also toggle-frame-fullscreen ..
+(global-set-key [f12] 'toggle-fullscreen)
+
 (provide 'stian-keyboard)
