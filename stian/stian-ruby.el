@@ -25,7 +25,5 @@
 (add-to-list 'auto-mode-alist '("Berksfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Appraisals\\'" . ruby-mode))
 
-;; Rails 1.x templates:
-(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . sgml-mode))
 
 (provide 'stian-ruby)

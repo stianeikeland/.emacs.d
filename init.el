@@ -59,6 +59,7 @@
         stian-shell
         stian-edit
         stian-ruby
+        stian-web
         stian-codestyle
         stian-git
         stian-project
