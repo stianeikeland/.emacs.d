@@ -58,6 +58,7 @@
         stian-ido
         stian-shell
         stian-edit
+        stian-flycheck
         stian-ruby
         stian-web
         stian-codestyle
