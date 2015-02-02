@@ -37,6 +37,11 @@
 (setq nrepl-hide-special-buffers t)
 
 
+;; Flycheck:
+(package-require 'flycheck-clojure)
+(eval-after-load 'flycheck '(flycheck-clojure-setup))
+;; Remember linters in ~/.lein/profile.clj
+
 ;; (add-hook 'cider-repl-mode-hook 'company-mode)
 ;; (add-hook 'cider-mode-hook 'company-mode)
 
