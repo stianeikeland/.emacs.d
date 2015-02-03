@@ -62,5 +62,12 @@
 (global-set-key "\M-p" 'scroll-down-in-place)
 
 
+;; Kill buffer in other window
+(global-set-key (kbd "C-x p")
+                (lambda () (interactive)
+                  (save-excursion
+                    (other-window 1)
+                    (quit-window))))
+
 
 (provide 'stian-nav)
