@@ -74,6 +74,7 @@
         stian-dired
         stian-html
         stian-keyboard
+        stian-coffee
         ))
 
 (dolist (file my-configs)
