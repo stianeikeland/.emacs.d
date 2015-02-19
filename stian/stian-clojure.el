@@ -70,5 +70,6 @@
 
 (package-require 'align-cljlet)
 
+(require 'setup-yesqlg)
 
 (provide 'stian-clojure)
