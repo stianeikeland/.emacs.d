@@ -7,4 +7,4 @@
 (global-set-key (kbd "H-.") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "H-,") 'ace-window)
 
-(provide 'setup-avy)
+(provide 'stian-avy)
