@@ -20,7 +20,7 @@
 (eval-after-load "paredit" '(diminish 'paredit-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode))
-(eval-after-load "magit-auto-revert-mode" '(diminish 'magit-auto-revert-mode))
+;; (eval-after-load "magit-auto-revert-mode" '(diminish 'magit-auto-revert-mode))
 
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Ⓨ"))
 (eval-after-load "golden-ratio-mode" '(diminish 'golden-ratio-mode " ⊞"))
@@ -37,6 +37,6 @@
 (rename-modeline "js2-mode" js2-mode "JS2")
 (rename-modeline "clojure-mode" clojure-mode "Clj")
 
-(after 'magit (diminish 'magit-auto-revert-mode))
+;; (after 'magit (diminish 'magit-auto-revert-mode))
 
 (provide 'stian-diminish)

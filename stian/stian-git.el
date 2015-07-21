@@ -4,6 +4,8 @@
 ;;(package-require 'magit-gh-pulls)
 ;(global-set-key (kbd "C-x g") 'magit-status)
 
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
 (package-require 'git-gutter)
 (global-git-gutter-mode t)
 ;(setq git-gutter:added-sign "+ ")
