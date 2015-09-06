@@ -1,7 +1,7 @@
 (require 'package)
-(dolist (source '(("melpa" . "http://melpa.org/packages/")
-                  ("marmalade" . "http://marmalade-repo.org/packages/")
-                  ("elpa" . "http://tromey.com/elpa/")))
+(dolist (source '(("melpa" . "https://melpa.org/packages/")
+                  ("marmalade" . "https://marmalade-repo.org/packages/")
+                  ("elpa" . "https://elpa.gnu.org/packages/")))
   (add-to-list 'package-archives source t))
 
 (package-initialize)
