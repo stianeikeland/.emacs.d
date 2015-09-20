@@ -21,11 +21,16 @@
 (setq cider-repl-print-length 100)
 (setq cider-repl-history-size 1000)
 
+(setq cider-ovelays-use-font-lock t)
+
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
-(package-require 'midje-mode)
-(add-hook 'clojure-mode-hook 'midje-mode)
+(add-hook 'cider-mode-hook 'paredit-mode)
+(add-hook 'cider-mode-hook 'subword-mode)
+
+;; (package-require 'midje-mode)
+;; (add-hook 'clojure-mode-hook 'midje-mode)
 
 (package-require 'rainbow-delimiters)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
@@ -72,6 +77,8 @@
 
 (package-require 'align-cljlet)
 
-(require 'setup-yesqlg)
+(package-require 'yesql-ghosts)
+(require 'yesql-ghosts)
+(set-face-background 'yesql-ghosts-defn-face (face-attribute 'default :background))
 
 (provide 'stian-clojure)
