@@ -13,4 +13,6 @@
 
 (setq projectile-completion-system 'ido)
 
+(package-require 'ag)
+
 (provide 'stian-project)
