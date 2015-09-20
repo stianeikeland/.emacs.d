@@ -70,4 +70,6 @@
                     (quit-window))))
 
 
+(windmove-default-keybindings)
+
 (provide 'stian-nav)
