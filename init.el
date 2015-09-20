@@ -1,8 +1,14 @@
 (require 'package)
-(dolist (source '(("melpa" . "https://melpa.org/packages/")
-                  ("marmalade" . "https://marmalade-repo.org/packages/")
-                  ("elpa" . "https://elpa.gnu.org/packages/")))
-  (add-to-list 'package-archives source t))
+
+;; (dolist (source '(("melpa" . "https://melpa.org/packages/")
+;;                   ("marmalade" . "https://marmalade-repo.org/packages/")
+;;                   ("elpa" . "https://elpa.gnu.org/packages/")))
+;;   (add-to-list 'package-archives source t))
+
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
 
 (package-initialize)
 
