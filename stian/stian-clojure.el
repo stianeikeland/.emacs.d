@@ -4,6 +4,8 @@
 
 (package-require 'clojure-mode)
 
+(package-require 'cider-eval-sexp-fu)
+
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.cljs?$" . clojure-mode))
 
