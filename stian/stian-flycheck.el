@@ -4,20 +4,8 @@
 (package-require 'flycheck-color-mode-line)
 (package-require 'flycheck-pos-tip)
 
-(defface flycheck-color-mode-line-error-face
-  '((t :foreground "#efefef" :weight normal :inherit flycheck-fringe-error))
-  "Face for the modeline in buffers with Flycheck errors."
-  :group 'flycheck-faces)
-
-(defface flycheck-color-mode-line-warning-face
-  '((t :foreground "#efefef" :weight normal :inherit flycheck-fringe-warning))
-  "Face for the modeline in buffers with only Flycheck warnings."
-  :group 'flycheck-faces)
-
-(defface flycheck-color-mode-line-info-face
-  '((t :foreground "#efefef" :weight normal :inherit flycheck-fringe-info))
-  "Face for the modeline in buffers with only Flycheck info."
-  :group 'flycheck-faces)
+(require 'flycheck)
+(require 'flycheck-color-mode-line)
 
 (set-face-background 'flycheck-error "#660000")
 (set-face-foreground 'flycheck-error nil)
