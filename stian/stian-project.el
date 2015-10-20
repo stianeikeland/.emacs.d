@@ -13,6 +13,8 @@
 
 (setq projectile-completion-system 'ido)
 
+;; Silver searcher
 (package-require 'ag)
+(setq ag-highlight-search t)
 
 (provide 'stian-project)
