@@ -1,10 +1,12 @@
 ;;; stian-git.el - magit setup
 
 (package-require 'magit)
-;;(package-require 'magit-gh-pulls)
-;(global-set-key (kbd "C-x g") 'magit-status)
+(package-require 'magit-gh-pulls)
 
+(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls) ; Horribly slow!
 
 (package-require 'git-gutter)
 (global-git-gutter-mode t)
