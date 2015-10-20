@@ -72,4 +72,12 @@
 
 (windmove-default-keybindings)
 
+
+;; Swiper
+(package-require 'swiper)
+(global-set-key "\C-s" 'swiper)
+(global-set-key "\C-r" 'swiper)
+(global-set-key [f6] 'ivy-resume)
+
+
 (provide 'stian-nav)
