@@ -72,6 +72,9 @@
 
 (windmove-default-keybindings)
 
+;; Avy
+(package-require 'avy)
+(global-set-key (kbd "C-'") 'avy-goto-char-2)
 
 ;; Swiper
 (package-require 'swiper)
