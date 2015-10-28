@@ -86,5 +86,8 @@
 (package-require 'smartscan)
 (global-set-key "\C-H-n" 'smartscan-symbol-go-forward)
 
+(package-require 'beacon)
+(beacon-mode 1)
+(setq beacon-blink-duration 0.7)
 
 (provide 'stian-nav)
