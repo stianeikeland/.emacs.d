@@ -82,5 +82,9 @@
 (global-set-key "\C-r" 'swiper)
 (global-set-key [f6] 'ivy-resume)
 
+;; Smartscan
+(package-require 'smartscan)
+(global-set-key "\C-H-n" 'smartscan-symbol-go-forward)
+
 
 (provide 'stian-nav)
