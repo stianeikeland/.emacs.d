@@ -88,9 +88,9 @@
 
 (package-require 'beacon)
 (beacon-mode 1)
-(setq beacon-color "OrangeRed")
+(setq beacon-color "MediumPurple")
 (setq beacon-blink-duration 0.2)
 (setq beacon-blink-delay 0.2)
-(setq beacon-blink-when-point-moves-vertically 7)
+(setq beacon-blink-when-point-moves-vertically 10)
 
 (provide 'stian-nav)
