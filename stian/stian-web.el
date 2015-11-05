@@ -16,6 +16,12 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 
+;; Highlight columns plz
+(setq web-mode-enable-current-column-highlight t)
+
+;; Highlight matching element plz
+(setq web-mode-enable-current-element-highlight t)
+
 (add-hook 'web-mode-hook
           (lambda ()
             (setq web-mode-markup-indent-offset 2)
