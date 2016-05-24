@@ -93,4 +93,8 @@
 (setq beacon-blink-delay 0.2)
 (setq beacon-blink-when-point-moves-vertically 10)
 
+
+(package-require 'imenu-anywhere)
+(global-set-key (kbd "C-.") 'imenu-anywhere)
+
 (provide 'stian-nav)
