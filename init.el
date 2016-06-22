@@ -83,6 +83,7 @@
         stian-coffee
         stian-purescript
         stian-avy
+        stian-pony
         stian-volatile-highlights
         ))
 
