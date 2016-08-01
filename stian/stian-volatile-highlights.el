@@ -3,4 +3,4 @@
 (package-require 'volatile-highlights)
 (volatile-highlights-mode t)
 
-(provide 'stian-volatile-highlight)
+(provide 'stian-volatile-highlights)
