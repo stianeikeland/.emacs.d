@@ -9,10 +9,10 @@
 (setq-default fill-column 80)
 (setq fill-column 80)
 
+(setq mode-require-final-newline nil)
+
 (package-require 'ethan-wspace)
 (global-ethan-wspace-mode 1)
-
-(setq mode-require-final-newline nil)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
