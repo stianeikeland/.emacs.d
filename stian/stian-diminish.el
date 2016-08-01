@@ -28,6 +28,7 @@
 (eval-after-load "flycheck-mode" '(diminish 'flycheck-mode " Ⓕ"))
 (eval-after-load "flyspell-mode" '(diminish 'flyspell-mode " Ⓢ"))
 (eval-after-load "company-mode" '(diminish 'company-mode " Ⓒ"))
+(eval-after-load "volatile-highlights-mode" '(diminish 'volatile-highlights-mode " V"))
 
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
