@@ -5,6 +5,7 @@
 
 (add-hook 'ruby-mode-hook 'subword-mode)
 (add-hook 'ruby-mode-hook 'flycheck-mode)
+(add-hook 'ruby-mode-hook 'smartparens-mode)
 
 ;; Rake files are ruby, too, as are gemspecs, rackup files, and gemfiles.
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
