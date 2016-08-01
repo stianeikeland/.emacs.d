@@ -4,7 +4,7 @@
 
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx$" . js2-jsx-mode))
+;;(add-to-list 'auto-mode-alist '("\\.jsx$" . js2-jsx-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
 
 (require 'js2-mode)
@@ -144,6 +144,28 @@
         (tern-ac-setup))))
 
 (add-hook 'js2-mode-hook 'js2-my-keys)
+
+
+;;; JSX
+
+(require 'flycheck)
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jshint)))
+
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+(setq-default flycheck-temp-prefix ".flycheck")
+
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(json-jsonlist)))
+
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
+(add-hook 'web-mode-hook
+          (lambda () (flycheck-mode t)))
+
 
 
 ;; Don't override global M-j keybinding (join lines)
