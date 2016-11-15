@@ -17,4 +17,6 @@
 (package-require 'ag)
 (setq ag-highlight-search t)
 
+(package-require 'reveal-in-osx-finder)
+
 (provide 'stian-project)
