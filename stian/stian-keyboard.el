@@ -67,4 +67,8 @@
 ;; there's also toggle-frame-fullscreen ..
 (global-set-key [f12] 'toggle-fullscreen)
 
+;; Show me help for partial commands
+(package-require 'which-key)
+(which-key-mode)
+
 (provide 'stian-keyboard)
