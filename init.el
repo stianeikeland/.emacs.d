@@ -56,7 +56,6 @@
       '(stian-theme
         stian-fun
         stian-nav
-        stian-mac
         stian-nyan
         stian-diminish
         stian-goldenratio
@@ -90,6 +89,8 @@
 (dolist (file my-configs)
   (require file))
 
+(if (eq system-type 'darwin)
+    (require 'stian-mac))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
