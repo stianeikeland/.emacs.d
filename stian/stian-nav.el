@@ -97,4 +97,10 @@
 (package-require 'imenu-anywhere)
 (global-set-key (kbd "C-.") 'imenu-anywhere)
 
+(defun create-scratch-buffer nil
+  "create a scratch buffer"
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode))
+
 (provide 'stian-nav)
