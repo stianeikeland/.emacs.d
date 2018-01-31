@@ -15,6 +15,7 @@
 
 ;; Silver searcher
 (package-require 'ag)
+(package-require 'wgrep-ag)
 (setq ag-highlight-search t)
 
 (package-require 'reveal-in-osx-finder)
