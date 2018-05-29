@@ -84,6 +84,7 @@
         stian-avy
         stian-pony
         stian-volatile-highlights
+        stian-neotree
         ))
 
 (dolist (file my-configs)
