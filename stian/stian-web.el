@@ -53,9 +53,9 @@
 ;;           (if tern-mode (tern-mode -1))))))
 
 
-(add-hook 'web-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-web-html))
-                          (company-mode t)))
+;; (add-hook 'web-mode-hook (lambda ()
+;;                           (set (make-local-variable 'company-backends) '(company-web-html))
+;;                           (company-mode t)))
 
 
 (provide 'stian-web)
