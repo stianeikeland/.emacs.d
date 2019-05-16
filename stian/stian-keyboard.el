@@ -43,6 +43,8 @@
 (global-unset-key [(hyper p)])
 (global-set-key [(hyper p)] 'projectile-find-file)
 
+(global-set-key [(hyper h)] 'ns-do-hide-emacs)
+
 ;; mac switch meta key
 (defun mac-switch-meta nil
   "switch meta between Option and Command"
