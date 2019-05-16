@@ -4,6 +4,7 @@
 
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.mjs$" . js2-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.jsx$" . js2-jsx-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
 
@@ -164,12 +165,46 @@
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
 (add-hook 'web-mode-hook
-          (lambda () (flycheck-mode t)))
-
-
+          (lambda ()
+            (when (string-equal "jsx" (file-name-extension buffer-file-name))
+              (flycheck-mode t))))
 
 ;; Don't override global M-j keybinding (join lines)
 (eval-after-load "js2-mode"
   '(define-key js2-mode-map (kbd "M-j") nil))
 
+
+;;; Typescript
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+(setq company-tooltip-align-annotations t)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-hook 'typescript-mode-hook #'smartparens-mode)
+
+;; Autoformat on save
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+;; TSX
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode)
+              (set-variable 'company-backends '(company-tide company-web-html company-css company-files))
+              (flycheck-add-mode 'typescript-tslint 'web-mode))))
+
 (provide 'stian-javascript)
+
+
+;; (push 'company-tide company-backends)

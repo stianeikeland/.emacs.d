@@ -4,6 +4,8 @@
 (package-require 'flycheck-color-mode-line)
 (package-require 'flycheck-pos-tip)
 
+(add-hook 'flycheck-mode-hook 'flycheck-pos-tip-mode)
+
 (require 'flycheck)
 (require 'flycheck-color-mode-line)
 
@@ -20,7 +22,7 @@
 
 (eval-after-load "flycheck"
   '(progn
-     (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
+     (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode 'flycheck-pos-tip-mode #'flycheck-elm-setup)
      (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
 
 (provide 'stian-flycheck)
