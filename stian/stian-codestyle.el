@@ -12,9 +12,14 @@
 (setq mode-require-final-newline nil)
 
 (package-require 'ethan-wspace)
-(global-ethan-wspace-mode 1)
+;; (global-ethan-wspace-mode 1) ;; Fucks with editorconfig
 
-(add-hook 'before-save-hook 'whitespace-cleanup)
+(defun makefile-tabs-are-less-evil ()
+  (setq ethan-wspace-errors (remove 'tabs ethan-wspace-errors)))
+
+(add-hook 'makefile-mode-hook 'makefile-tabs-are-less-evil)
+
+;; (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; FIXME move me..
 (setq-default c-basic-offset 4)
