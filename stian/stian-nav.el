@@ -73,14 +73,8 @@
 (windmove-default-keybindings)
 
 ;; Avy
-(package-require 'avy)
-(global-set-key (kbd "C-'") 'avy-goto-char-2)
-
-;; Swiper
-(package-require 'swiper)
-;(global-set-key "\C-s" 'swiper)
-;(global-set-key "\C-r" 'swiper)
-(global-set-key [f6] 'ivy-resume)
+;; (package-require 'avy)
+;; (global-set-key (kbd "C-'") 'avy-goto-char-2)
 
 ;; Smartscan
 (package-require 'smartscan)
@@ -102,10 +96,5 @@
   (interactive)
   (switch-to-buffer (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
-
-;; Phi-search supports multiple cursors
-(package-require 'phi-search)
-(global-set-key (kbd "C-s") 'phi-search)
-(global-set-key (kbd "C-r") 'phi-search-backward)
 
 (provide 'stian-nav)

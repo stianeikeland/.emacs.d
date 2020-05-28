@@ -10,8 +10,8 @@
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 
 ;; Switch buffer with cmd-t.
-(global-unset-key (kbd "s-b"))
-(global-set-key (kbd "s-b") 'ido-switch-buffer)
+;; (global-unset-key (kbd "s-b"))
+;; (global-set-key (kbd "s-b") 'ido-switch-buffer)
 
 ;; Projectile switch file with cmd-p
 (global-unset-key (kbd "s-p"))
@@ -37,9 +37,9 @@
 (global-set-key [(hyper l)] 'goto-line)
 (global-set-key [(hyper w)] 'kill-this-buffer)
 (global-set-key [(hyper z)] 'undo)
-(global-unset-key [(hyper b)])
-(global-set-key [(hyper b)] 'ido-switch-buffer)
-(global-set-key [(hyper t)] 'ido-switch-buffer)
+;; (global-unset-key [(hyper b)])
+;; (global-set-key [(hyper b)] 'ido-switch-buffer)
+;; (global-set-key [(hyper t)] 'ido-switch-buffer)
 (global-unset-key [(hyper p)])
 (global-set-key [(hyper p)] 'projectile-find-file)
 

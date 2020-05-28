@@ -68,7 +68,8 @@
         stian-diminish
         stian-goldenratio
         stian-hippie
-        stian-ido
+        ;; stian-ido
+        stian-ivy
         stian-shell
         stian-edit
         stian-flycheck
